@@ -7,6 +7,13 @@ on:
     - 'V8_VERSION'
     - 'builders/**'
     - '.github/workflows/build.yml'
+  workflow_dispatch:
+    inputs:
+      doRelease:
+        description: 'Publish new release'
+        type: boolean
+        default: false
+        required: false
 
 jobs:
 
