@@ -42,11 +42,16 @@ python ./tools/dev/v8gen.py arm.release -vv -- '
 target_os = "android"
 target_cpu = "arm"
 v8_target_cpu = "arm"
-is_component_build = true
+v8_static_library = true
+is_component_build = false
+v8_monolithic = true
 use_custom_libcxx = false
-v8_enable_i18n_support = true
+v8_enable_i18n_support = false
 v8_use_external_startup_data = false
-symbol_level = 1
+symbol_level = 2
+strip_debug_info = false
+v8_enable_webassembly = false
+v8_enable_wasm_gdb_remote_debugging = false
 '
 ninja -C out.gn/arm.release -t clean
 ninja -C out.gn/arm.release v8_libplatform
