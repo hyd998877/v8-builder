@@ -45,7 +45,6 @@ v8_target_cpu = "arm"
 v8_static_library = true
 is_component_build = false
 v8_monolithic = true
-use_custom_libcxx = false
 v8_enable_i18n_support = false
 v8_use_external_startup_data = false
 symbol_level = 2
