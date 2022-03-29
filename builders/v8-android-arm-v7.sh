@@ -51,6 +51,7 @@ symbol_level = 2
 strip_debug_info = false
 v8_enable_webassembly = false
 v8_enable_wasm_gdb_remote_debugging = false
+use_custom_libcxx = true
 '
 ninja -C out.gn/arm.release -t clean
 ninja -C out.gn/arm.release v8_libplatform
