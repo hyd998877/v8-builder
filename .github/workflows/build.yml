@@ -43,12 +43,12 @@ jobs:
       with:
         name: android_arm64-v8a
         path: |
-          ~/v8/v8/out.gn/arm64.release/*.so
-          ~/v8/v8/out.gn/arm64.release/*.dat
-          ~/v8/v8/out.gn/arm64.release/clang_*/bytecode_builtins_list_generator
-          ~/v8/v8/out.gn/arm64.release/clang_*/gen-regexp-special-case
-          ~/v8/v8/out.gn/arm64.release/clang_*/mksnapshot
-          ~/v8/v8/out.gn/arm64.release/clang_*/torque
+          ~/v8/v8/out.gn/arm64.release/*.a
+#           ~/v8/v8/out.gn/arm64.release/*.dat
+#           ~/v8/v8/out.gn/arm64.release/clang_*/bytecode_builtins_list_generator
+#           ~/v8/v8/out.gn/arm64.release/clang_*/gen-regexp-special-case
+#           ~/v8/v8/out.gn/arm64.release/clang_*/mksnapshot
+#           ~/v8/v8/out.gn/arm64.release/clang_*/torque
 
   build_android_arm_v7:
     name: Android (armeabi-v7a)
@@ -64,12 +64,12 @@ jobs:
       with:
         name: android_armeabi-v7a
         path: |
-          ~/v8/v8/out.gn/arm.release/*.so
-          ~/v8/v8/out.gn/arm.release/*.dat
-          ~/v8/v8/out.gn/arm.release/clang_*/bytecode_builtins_list_generator
-          ~/v8/v8/out.gn/arm.release/clang_*/gen-regexp-special-case
-          ~/v8/v8/out.gn/arm.release/clang_*/mksnapshot
-          ~/v8/v8/out.gn/arm.release/clang_*/torque
+          ~/v8/v8/out.gn/arm.release/*.a
+#           ~/v8/v8/out.gn/arm.release/*.dat
+#           ~/v8/v8/out.gn/arm.release/clang_*/bytecode_builtins_list_generator
+#           ~/v8/v8/out.gn/arm.release/clang_*/gen-regexp-special-case
+#           ~/v8/v8/out.gn/arm.release/clang_*/mksnapshot
+#           ~/v8/v8/out.gn/arm.release/clang_*/torque
 
 #   build_windows:
 #     name: Windows
@@ -94,34 +94,34 @@ jobs:
 #           v8/v8/out.gn/x64.release/*.exe
 #           v8/v8/out.gn/x64.release/*.dat
 
-  headers_and_documentation:
-    name: Headers and Documentation
-    runs-on: ubuntu-18.04
-    needs: version_reader
-    steps:
-    - uses: actions/checkout@v2
-    - name: Generate documentation
-      run: |
-        cd $GITHUB_WORKSPACE
-        sh ./builders/v8-docs.sh ${{ needs.version_reader.outputs.v8_version }}
-    - uses: actions/upload-artifact@v2
-      with:
-        name: headers
-        path: '~/v8/v8/include'
-    - uses: actions/upload-artifact@v2
-      with:
-        name: license
-        path: '~/v8/v8/LICENSE.v8'
-    - uses: actions/upload-artifact@v2
-      with:
-        name: documentation
-        path: '~/docs'
+#   headers_and_documentation:
+#     name: Headers and Documentation
+#     runs-on: ubuntu-18.04
+#     needs: version_reader
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Generate documentation
+#       run: |
+#         cd $GITHUB_WORKSPACE
+#         sh ./builders/v8-docs.sh ${{ needs.version_reader.outputs.v8_version }}
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         name: headers
+#         path: '~/v8/v8/include'
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         name: license
+#         path: '~/v8/v8/LICENSE.v8'
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         name: documentation
+#         path: '~/docs'
 
   release:
     name: Release
     runs-on: ubuntu-latest
     needs: [
-      version_reader,build_android_arm_v8, build_android_arm_v7, headers_and_documentation
+      version_reader,build_android_arm_v8, build_android_arm_v7
     ]
     steps:
     - uses: actions/download-artifact@v2
