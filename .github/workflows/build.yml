@@ -36,7 +36,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup Debug Session
-        uses:csexton/debugger-action@master
+      uses: csexton/debugger-action@master
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
@@ -46,11 +46,11 @@ jobs:
         name: android_arm64-v8a
         path: |
           ~/v8/v8/out.gn/arm64.release/*.a
-#           ~/v8/v8/out.gn/arm64.release/*.dat
-#           ~/v8/v8/out.gn/arm64.release/clang_*/bytecode_builtins_list_generator
-#           ~/v8/v8/out.gn/arm64.release/clang_*/gen-regexp-special-case
-#           ~/v8/v8/out.gn/arm64.release/clang_*/mksnapshot
-#           ~/v8/v8/out.gn/arm64.release/clang_*/torque
+          ~/v8/v8/out.gn/arm64.release/*.dat
+          ~/v8/v8/out.gn/arm64.release/clang_*/bytecode_builtins_list_generator
+          ~/v8/v8/out.gn/arm64.release/clang_*/gen-regexp-special-case
+          ~/v8/v8/out.gn/arm64.release/clang_*/mksnapshot
+          ~/v8/v8/out.gn/arm64.release/clang_*/torque
 
   build_android_arm_v7:
     name: Android (armeabi-v7a)
@@ -59,7 +59,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup Debug Session
-        uses:csexton/debugger-action@master
+      uses: csexton/debugger-action@master
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
