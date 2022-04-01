@@ -35,6 +35,8 @@ jobs:
     needs: version_reader
     steps:
     - uses: actions/checkout@v2
+    - name: Setup Debug Session
+        uses: csexton/debugger-action@master
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
@@ -56,6 +58,8 @@ jobs:
     needs: version_reader
     steps:
     - uses: actions/checkout@v2
+    - name: Setup Debug Session
+        uses: csexton/debugger-action@master
     - name: Run build script
       run: |
         cd $GITHUB_WORKSPACE
