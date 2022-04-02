@@ -65,7 +65,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         sh ./builders/v8-android-arm-v7.sh ${{ needs.version_reader.outputs.v8_version }}
-        ~/v8/v8/out.gn/arm.release/obj
+        ls ~/v8/v8/out.gn/arm.release/obj
     - uses: actions/upload-artifact@v2
       with:
         name: android_armeabi-v7a
