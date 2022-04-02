@@ -41,12 +41,12 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         sh ./builders/v8-android-arm-v8.sh ${{ needs.version_reader.outputs.v8_version }}
-        ls ~/v8/v8/out.gn/arm64.release/
+        ls ~/v8/v8/out.gn/arm64.release/obj
     - uses: actions/upload-artifact@v2
       with:
         name: android_arm64-v8a
         path: |
-          ~/v8/v8/out.gn/arm64.release/*.a
+          ~/v8/v8/out.gn/arm64.release/obj/*.a
 #          ~/v8/v8/out.gn/arm64.release/*.dat
 #          ~/v8/v8/out.gn/arm64.release/clang_*/bytecode_builtins_list_generator
 #          ~/v8/v8/out.gn/arm64.release/clang_*/gen-regexp-special-case
@@ -65,12 +65,12 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         sh ./builders/v8-android-arm-v7.sh ${{ needs.version_reader.outputs.v8_version }}
-        ~/v8/v8/out.gn/arm64.release/
+        ~/v8/v8/out.gn/arm.release/obj
     - uses: actions/upload-artifact@v2
       with:
         name: android_armeabi-v7a
         path: |
-          ~/v8/v8/out.gn/arm.release/*.a
+          ~/v8/v8/out.gn/arm.release/obj/*.a
 #           ~/v8/v8/out.gn/arm.release/*.dat
 #           ~/v8/v8/out.gn/arm.release/clang_*/bytecode_builtins_list_generator
 #           ~/v8/v8/out.gn/arm.release/clang_*/gen-regexp-special-case
