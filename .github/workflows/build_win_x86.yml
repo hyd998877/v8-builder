@@ -1,4 +1,4 @@
-name: Build V8
+name: Build winx86 V8
 
 on:
 #   push:
