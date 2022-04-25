@@ -31,13 +31,13 @@ jobs:
       with:
         name: windows
         path: |
-          v8/v8/out.gn/x86.release/*.dll
-          v8/v8/out.gn/x86.release/*.pdb
-          v8/v8/out.gn/x86.release/*.lib
-          v8/v8/out.gn/x86.release/*.exp
-          v8/v8/out.gn/x86.release/*.ilk
-          v8/v8/out.gn/x86.release/*.exe
-          v8/v8/out.gn/x86.release/*.dat
+          v8/v8/out.gn/ia32.release/*.dll
+          v8/v8/out.gn/ia32.release/*.pdb
+          v8/v8/out.gn/ia32.release/*.lib
+          v8/v8/out.gn/ia32.release/*.exp
+          v8/v8/out.gn/ia32.release/*.ilk
+          v8/v8/out.gn/ia32.release/*.exe
+          v8/v8/out.gn/ia32.release/*.dat
 
   release:
     name: Release
