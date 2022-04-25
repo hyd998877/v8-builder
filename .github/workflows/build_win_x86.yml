@@ -20,14 +20,13 @@ jobs:
   build_windows:
     name: Windows
     runs-on: windows-2019
-    needs: version_reader
     steps:
     - uses: actions/checkout@v2
     - name: Run build script
       shell: cmd
       run: |
         cd %GITHUB_WORKSPACE%
-        call .\builders\v8-windows-x86.cmd ${{ needs.version_reader.outputs.v8_version }}
+        call .\builders\v8-windows-x86.cmd
     - uses: actions/upload-artifact@v2
       with:
         name: windows
@@ -43,9 +42,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    needs: [
-      build_windows
-    ]
+    needs: [build_windows]
     steps:
     - uses: actions/download-artifact@v2
       with:
